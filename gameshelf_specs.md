@@ -181,7 +181,7 @@ export function recommend(prefs: Preferences, games: Game[]): Game[] {
 Here's the tree again, then each file in plain language.
 
 ```text
-games-picker/
+gameshelf/
 ├── index.html
 ├── package.json
 ├── tsconfig.json
