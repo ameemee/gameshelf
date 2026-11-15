@@ -1,17 +1,17 @@
 export const DIMENSIONS = [
-  "minPlayers",
-  "maxPlayers",
-  "energy",
-  "divisiveness",
+    "minPlayers",
+    "maxPlayers",
+    "energy",
+    "divisiveness",
 ] as const;
 
 export type DimensionId = (typeof DIMENSIONS)[number];
 
 export const DIMENSION_META: Record<DimensionId, { label: string }> = {
-  minPlayers: { label: "Min number of players" },
-  maxPlayers: { label: "Max number of players" },
-  energy: { label: "Energy required" },
-  divisiveness: { label: "Divisiveness" },
+    minPlayers: { label: "Min number of players" },
+    maxPlayers: { label: "Max number of players" },
+    energy: { label: "Energy required" },
+    divisiveness: { label: "Divisiveness" },
 };
 
 /* 
