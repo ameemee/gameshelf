@@ -6,10 +6,10 @@ import type { InstructionsId } from "../data/instructions";
 export type DimensionVector = Record<DimensionId, number>;
 
 export interface Game {
-  id: string;
-  name: string;
-  dimensions: DimensionVector;
-  instructionsId: InstructionsId;
+    id: string;
+    name: string;
+    dimensions: DimensionVector;
+    instructionsId: InstructionsId;
 }
 
 // Partial makes every key optional, as users might not supply every dimension
