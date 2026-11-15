@@ -4,7 +4,7 @@ import geoGessurInstructions from "./gameSpecs/geoGessurInstructions/txt?raw";
 // INSTRUCTIONS is stored going to be pulled when rendering the game.
 // chose to store each in it's own file instead of as a string since it can get long
 export const INSTRUCTIONS = {
-    geoGessur: geoGessurInstructions,
+  geoGessur: geoGessurInstructions,
 } as const;
 
 export type InstructionsId = keyof typeof INSTRUCTIONS;

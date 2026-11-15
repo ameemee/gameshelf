@@ -4,8 +4,8 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [react()],
-    test: {
-        environment: "node", // pure functions, no DOM needed for recommend tests
-    },
+  plugins: [react()],
+  test: {
+    environment: "node", // pure functions, no DOM needed for recommend tests
+  },
 });
