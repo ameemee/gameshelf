@@ -7,11 +7,17 @@ export const GAMES: Game[] = [
         id: "geoGessur",
         name: "geoGessur",
         dimensions: {
-            minPlayers: 1,
-            maxPlayers: Infinity,
             energy: 2,
             divisiveness: 2,
         },
+        playerRange: { min: 1, max: Infinity },
         instructionsId: "geoGessur",
+    },
+    {
+        id: "codenames",
+        name: "Codenames",
+        dimensions: { energy: 2, divisiveness: 5 },
+        playerRange: { min: 4, max: 8 },
+        instructionsId: "codenames",
     },
 ];
