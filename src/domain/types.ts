@@ -5,13 +5,29 @@ import type { InstructionsId } from "../data/instructions";
 // used to represent how "close" a game is to the preference
 export type DimensionVector = Record<DimensionId, number>;
 
+export interface PlayerRange {
+    min: number;
+    max: number;
+}
+
 export interface Game {
     id: string;
     name: string;
     dimensions: DimensionVector;
+    playerRange: PlayerRange;
     instructionsId: InstructionsId;
 }
 
 // Partial makes every key optional, as users might not supply every dimension
 // handle unsupplied dimensions in recommend by filtering for !== undefined
-export type Preferences = Partial<Record<DimensionId, number>>;
+// looks like eg.:
+// {
+//     energy: 5
+//     numPlayers: 8
+// }
+export type Preferences = {
+    scalars: Partial<Record<DimensionId, number>>;
+    playerCount?: number;
+};
+
+export const EMPTY_PREFERENCES = { scalars: {} };

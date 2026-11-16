@@ -1,15 +1,11 @@
-export const DIMENSIONS = [
-    "minPlayers",
-    "maxPlayers",
-    "energy",
-    "divisiveness",
-] as const;
+// these are the dimensions that participate in the euclidean distance ranking
+// note: player count is NOT a dimension - it's a filter (Game.playerRange vs. Preferences.playerCount)
+// that's applied before ranking occurs
+export const DIMENSIONS = ["energy", "divisiveness"] as const;
 
 export type DimensionId = (typeof DIMENSIONS)[number];
 
 export const DIMENSION_META: Record<DimensionId, { label: string }> = {
-    minPlayers: { label: "Min number of players" },
-    maxPlayers: { label: "Max number of players" },
     energy: { label: "Energy required" },
     divisiveness: { label: "Divisiveness" },
 };
