@@ -17,10 +17,10 @@ function game(
 }
 
 function prefs(
-    scalars: Preferences["scalars"] = {},
+    dimensions: Preferences["dimensions"] = {},
     playerCount?: number,
 ): Preferences {
-    return { scalars, playerCount };
+    return { dimensions, playerCount };
 }
 
 describe("recommend — dimension ranking", () => {
