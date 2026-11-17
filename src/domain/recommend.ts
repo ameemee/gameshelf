@@ -30,11 +30,11 @@ function isEligible(playerCount: number | undefined, game: Game): boolean {
 
 export function recommend(prefs: Preferences, games: Game[]): Game[] {
     // step 0. determine which dimensiosn the player actually supplied a value/pref for
-    const allDims = Object.keys(prefs.scalars) as DimensionId[];
+    const allDims = Object.keys(prefs.dimensions) as DimensionId[];
     const suppliedDims: DimensionId[] = [];
 
     for (const dim of allDims) {
-        if (prefs.scalars[dim] !== undefined) {
+        if (prefs.dimensions[dim] !== undefined) {
             suppliedDims.push(dim);
         }
     }
@@ -56,7 +56,7 @@ export function recommend(prefs: Preferences, games: Game[]): Game[] {
         return {
             game: game,
             index: index,
-            distance: euclideanDist(prefs.scalars, game, suppliedDims),
+            distance: euclideanDist(prefs.dimensions, game, suppliedDims),
         };
     });
 

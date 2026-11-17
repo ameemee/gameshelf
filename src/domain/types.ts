@@ -26,8 +26,8 @@ export interface Game {
 //     numPlayers: 8
 // }
 export type Preferences = {
-    scalars: Partial<Record<DimensionId, number>>;
+    dimensions: Partial<Record<DimensionId, number>>;
     playerCount?: number;
 };
 
-export const EMPTY_PREFERENCES = { scalars: {} };
+export const EMPTY_PREFERENCES = { dimensions: {} };
