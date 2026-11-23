@@ -1,0 +1,203 @@
+/* Section cards — every major region is a card */
+.card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-5);
+}
+
+.card h2 {
+    margin: 0 0 var(--space-4);
+    font-size: var(--text-lg);
+    font-weight: 600;
+}
+
+/* Preference controls */
+.dimension-control {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--color-border);
+}
+.dimension-control:first-of-type {
+    border-top: none;
+}
+
+.dimension-control label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.dimension-control input[type="range"] {
+    width: 100%;
+    accent-color: var(--color-accent);
+}
+
+.dimension-control input[type="range"]:disabled {
+    opacity: 0.4;
+}
+
+.dimension-readout {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.player-count-control {
+    display: grid;
+    gap: var(--space-2);
+    padding-top: var(--space-4);
+    margin-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.player-count-control label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+}
+
+.player-count-control input[type="number"] {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    font: inherit;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+}
+.player-count-control input[type="number"]:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 1px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-4);
+    font: inherit;
+    font-weight: 500;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition:
+        background-color 0.15s,
+        border-color 0.15s;
+}
+
+.btn-primary {
+    background: var(--color-accent);
+    color: white;
+}
+.btn-primary:hover:not(:disabled) {
+    background: var(--color-accent-hover);
+}
+
+.btn-secondary {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+.btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.btn:disabled {
+    background: var(--color-disabled);
+    color: white;
+    cursor: not-allowed;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* Game rows (shared by registry + results) */
+.game-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.game-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-3) var(--space-4);
+    align-items: center;
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--color-border);
+}
+.game-row:first-child {
+    border-top: none;
+}
+
+.game-row-main {
+    display: grid;
+    gap: var(--space-1);
+    min-width: 0;
+}
+.game-name {
+    font-weight: 600;
+}
+.game-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+}
+.game-meta .dimension-value::after {
+    content: "·";
+    margin-left: var(--space-2);
+    color: var(--color-border);
+}
+.game-meta .dimension-value:last-child::after {
+    content: "";
+}
+
+.rank {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Results spacing */
+.recommendation-list {
+    margin-bottom: var(--space-6);
+}
+.recommendation-empty {
+    color: var(--color-muted);
+    text-align: center;
+    padding: var(--space-6) 0;
+}
+
+/* Modal */
+.instructions-modal {
+    max-width: 640px;
+    width: calc(100% - var(--space-6) * 2);
+    padding: var(--space-5);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+}
+.instructions-modal::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+.instructions-modal h2 {
+    margin: 0 0 var(--space-4);
+    font-size: var(--text-lg);
+}
+.instructions-text {
+    white-space: pre-wrap;
+    font-family: inherit;
+    margin: 0 0 var(--space-4);
+    max-height: 50vh;
+    overflow: auto;
+}

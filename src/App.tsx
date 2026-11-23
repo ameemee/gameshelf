@@ -1,7 +1,7 @@
 // export default function App() {
 //     return <div>{"gameshelf >:)"}</div>;
 // }
-
+import "./App.css";
 import { useState } from "react";
 import { GAMES } from "./data/games";
 import { INSTRUCTIONS } from "./data/instructions";
@@ -34,30 +34,46 @@ export default function App() {
             : (GAMES.find((g) => g.id === openInstructionsId) ?? null);
 
     return (
-        <main>
-            <h1>gameshelf</h1>
+        <>
+            <header className="app-header">
+                <h1>gameshelf</h1>
+            </header>
 
-            <PreferenceControls prefs={prefs} onChange={setPrefs} />
+            <div className="app-layout">
+                <aside className="app-sidebar">
+                    <section className="card">
+                        <PreferenceControls prefs={prefs} onChange={setPrefs} />
+                        <div style={{ marginTop: "var(--space-4)" }}>
+                            <button
+                                type="button"
+                                className="btn btn-primary btn-full"
+                                onClick={handleRecommend}
+                                disabled={!canRecommend}
+                            >
+                                Recommend
+                            </button>
+                        </div>
+                    </section>
+                </aside>
 
-            <button
-                type="button"
-                onClick={handleRecommend}
-                disabled={!canRecommend}
-            >
-                Recommend
-            </button>
+                <main className="app-main">
+                    {results.length > 0 && (
+                        <section className="card recommendation-list">
+                            <RecommendationList
+                                games={results}
+                                onShowInstructions={setOpenInstructionsId}
+                            />
+                        </section>
+                    )}
 
-            {results.length > 0 && (
-                <RecommendationList
-                    games={results}
-                    onShowInstructions={setOpenInstructionsId}
-                />
-            )}
-
-            <RegistryList
-                games={GAMES}
-                onShowInstructions={setOpenInstructionsId}
-            />
+                    <section className="card">
+                        <RegistryList
+                            games={GAMES}
+                            onShowInstructions={setOpenInstructionsId}
+                        />
+                    </section>
+                </main>
+            </div>
 
             {openGame !== null && (
                 <InstructionsModal
@@ -66,6 +82,6 @@ export default function App() {
                     onClose={() => setOpenInstructionsId(null)}
                 />
             )}
-        </main>
+        </>
     );
 }
